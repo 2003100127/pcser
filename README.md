@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://github.com/2003100127/pcser/blob/main/img/pcser-logo.png?raw=true" width="240" height="124">
+    <img src="https://github.com/2003100127/pcser/blob/main/img/pcser-logo.png?raw=true" width="200" height="70">
     <br>
 </h1>
 
