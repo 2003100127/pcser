@@ -1,0 +1,946 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../installation/">
+      
+      
+        <link rel="next" href="../2.%20Model%20building/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+    
+    
+      
+        <title>1. Data - PCSER</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PCSER" class="md-header__button md-logo" aria-label="PCSER" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PCSER
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/2003100127/pcser" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2003100127/pcser
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PCSER" class="md-nav__button md-logo" aria-label="PCSER" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    PCSER
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/2003100127/pcser" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2003100127/pcser
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Data
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1. Data
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Model%20building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Model building
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Model%20evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Model evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Feature%20contribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Feature contribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Display%20results/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Display results
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>1. Data</h1>
+
+<p>We provide reference proteomics data for predicting protein corona stealth effects. It contains both proteomics data and annotations of a higher level. According to the annotation, we know functional groups of the proteins. Thus, apart from building models based on proteomics features, we also build another suite of models based on their functional groups. In short, we have data belonging to the two categories,</p>
+<ul>
+<li>protein composition (Composition which can be accessed through <code>compo</code>)</li>
+<li>protein functional group (Annotation which can be accessed through <code>annot</code>)</li>
+</ul>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Composition</label><label for="__tabbed_1_2">Annotation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pcser</span> <span class="k">as</span> <span class="nn">pcs</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pcs</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">data_ref_compo</span><span class="p">(</span>
+    <span class="n">data_ref_fpn</span><span class="o">=</span><span class="s1">&#39;D:/Document/Programming/Python/pcser/pcser/data/hu_macrophage/Proteomics_07262023_rv_C57BL6_spl54.xlsx&#39;</span><span class="p">,</span>
+    <span class="n">sv_fp</span><span class="o">=</span><span class="s1">&#39;D:/Document/Programming/Python/pcser/pcser/data/&#39;</span><span class="p">,</span>  <span class="c1"># None to(&#39;data/&#39;)</span>
+
+    <span class="n">is_norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">norm_met</span><span class="o">=</span><span class="s1">&#39;minmax&#39;</span><span class="p">,</span>  <span class="c1"># minmax std maxabs</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span><span class="p">,</span>  <span class="c1"># e</span>
+<span class="p">)</span>
+<span class="n">df</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pcser</span> <span class="k">as</span> <span class="nn">pcs</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pcs</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">data_ref_annot</span><span class="p">(</span>
+    <span class="n">data_ref_fpn</span><span class="o">=</span><span class="s1">&#39;D:/Document/Programming/Python/pcser/pcser/data/hu_macrophage/Proteomics_07262023_rv_C57BL6_spl54.xlsx&#39;</span><span class="p">,</span>
+    <span class="n">sv_fp</span><span class="o">=</span><span class="s1">&#39;D:/Document/Programming/Python/pcser/pcser/data/&#39;</span><span class="p">,</span>  <span class="c1"># None to(&#39;data/&#39;)</span>
+
+    <span class="n">is_norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">norm_met</span><span class="o">=</span><span class="s1">&#39;minmax&#39;</span><span class="p">,</span>  <span class="c1"># minmax std maxabs</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;extended&#39;</span><span class="p">,</span>  <span class="c1"># e</span>
+<span class="p">)</span>
+<span class="n">df</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">&para;</a></h2>
+<div class="admonition illustration">
+<p class="admonition-title">Illustration</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Regular</label><label for="__tabbed_2_2">Added</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nl">data_ref_fpn</span><span class="p">:</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">training</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">further</span><span class="w"> </span><span class="n">use</span>
+<span class="nl">sv_fp</span><span class="p">:</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="w"> </span><span class="n">Please</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">save</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">training</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">resulting</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">None</span><span class="p">.</span>
+<span class="nl">is_norm</span><span class="p">:</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">normalised</span><span class="p">.</span><span class="w"> </span><span class="n">Default</span><span class="o">:</span><span class="w"> </span><span class="n">True</span>
+<span class="nl">norm_met</span><span class="p">:</span><span class="w"> </span><span class="n">normalisation</span><span class="w"> </span><span class="n">method</span><span class="p">.</span><span class="w"> </span><span class="n">It</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">minmax</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">maxabs</span><span class="p">.</span>
+<span class="nl">version</span><span class="p">:</span><span class="w"> </span><span class="n">It</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">old</span><span class="p">.</span><span class="w"> </span><span class="n">extended</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">PBS</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="w"> </span><span class="n">Default</span><span class="o">:</span><span class="w"> </span><span class="err">&#39;</span><span class="n">extended</span><span class="err">&#39;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">None</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h2>
+<p><code>df</code></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Composition</label><label for="__tabbed_3_2">Annotation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">You</span> <span class="n">are</span> <span class="n">using</span> <span class="n">extended</span> <span class="n">sheets</span><span class="o">.</span>
+<span class="n">You</span> <span class="n">have</span> <span class="n">selected</span> <span class="n">the</span> <span class="n">minmax</span> <span class="n">normalization</span> <span class="n">method</span><span class="o">.</span>
+<span class="n">Downcasting</span> <span class="nb">object</span> <span class="n">dtype</span> <span class="n">arrays</span> <span class="n">on</span> <span class="o">.</span><span class="n">fillna</span><span class="p">,</span> <span class="o">.</span><span class="n">ffill</span><span class="p">,</span> <span class="o">.</span><span class="n">bfill</span> <span class="ow">is</span> <span class="n">deprecated</span> <span class="ow">and</span> <span class="n">will</span> <span class="n">change</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">future</span> <span class="n">version</span><span class="o">.</span> <span class="n">Call</span> <span class="n">result</span><span class="o">.</span><span class="n">infer_objects</span><span class="p">(</span><span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="n">instead</span><span class="o">.</span> <span class="n">To</span> <span class="n">opt</span><span class="o">-</span><span class="ow">in</span> <span class="n">to</span> <span class="n">the</span> <span class="n">future</span> <span class="n">behavior</span><span class="p">,</span> <span class="nb">set</span> <span class="err">`</span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;future.no_silent_downcasting&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span><span class="err">`</span>
+<span class="n">Apolipoprotein</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="mi">0</span>  <span class="n">Apolipoprotein</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">1</span>  <span class="n">Clusterin</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="mi">2</span>   <span class="n">Clusterin</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">3</span>   <span class="n">Total_quantification</span>    <span class="n">Alpha</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">antitrypsin</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="mi">5</span> <span class="n">Alpha</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">acid</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="mi">6</span>    <span class="n">Fibronectin</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="mi">7</span> <span class="n">Haptoglobin</span><span class="o">-</span><span class="n">related</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="mi">8</span> <span class="n">Serum</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="mi">9</span>   <span class="o">...</span> <span class="n">ADP</span><span class="o">-</span><span class="n">ribosylation</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">409</span>  <span class="n">Cartilage</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">410</span> <span class="n">Glia</span><span class="o">-</span><span class="n">derived</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">411</span>  <span class="n">Gamma</span><span class="o">-</span><span class="n">enolase</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">412</span> <span class="n">H</span><span class="o">-</span><span class="mi">2</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">413</span>   <span class="n">Transmembrane</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">414</span> <span class="n">Exosome</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">415</span>   <span class="n">Trimethylguanosine</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">416</span>    <span class="n">H</span><span class="o">-</span><span class="mi">2</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">417</span>   <span class="n">stealth_effect</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS_HuApoA1</span>  <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">851.222073</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.614734</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS_MoApoA1</span>  <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">773.838190</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.621876</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS_HuClusterin</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">654.288581</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.614734</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS_MoClusterin</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">781.983886</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.699244</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS_HuApoA1</span>  <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">928.280551</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.700659</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS_MoApoA1</span>  <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">794.894175</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.665466</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS_HuClusterin</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">616.388157</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.660222</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS_MoClusterin</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">780.593948</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.604761</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS_HuApoA1</span> <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">1062.287771</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.575969</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS_MoApoA1</span> <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">912.887741</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.618787</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS_HuClusterin</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">819.037063</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.680553</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS_MoClusterin</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">1067.107172</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.642657</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuApoA1</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">3404.888290</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.789223</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoApoA1</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">3095.352760</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.799582</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuClusterin</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">2617.154325</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.809361</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoClusterin</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">3127.935545</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.724015</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuApoA1</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">3713.122203</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.652340</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoApoA1</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">3179.576700</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.657488</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuClusterin</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">2465.552630</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.665047</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoClusterin</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">3122.375793</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.645939</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuApoA1</span>   <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">4249.151084</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.629821</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoApoA1</span>   <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">3651.550964</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.615216</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuClusterin</span>   <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">0.000000</span>    <span class="mf">3276.148252</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.675470</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoClusterin</span>   <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">100.000000</span>  <span class="mf">4268.428688</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.589738</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">HuPlasma_Blank</span>   <span class="mf">27.706938</span>   <span class="mf">0.274831</span>    <span class="mf">25.330892</span>   <span class="mf">0.314565</span>    <span class="mf">3089.788689</span> <span class="mf">1.458007</span>    <span class="mf">0.323180</span>    <span class="mf">0.070980</span>    <span class="mf">0.063613</span>    <span class="mf">0.042111</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.992858</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">HuPlasma_HuApoA1</span> <span class="mf">35.990035</span>   <span class="mf">0.254901</span>    <span class="mf">25.079510</span>   <span class="mf">0.172037</span>    <span class="mf">2606.822739</span> <span class="mf">2.014830</span>    <span class="mf">0.305536</span>    <span class="mf">0.062046</span>    <span class="mf">0.040247</span>    <span class="mf">0.033516</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">1.000000</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">HuPlasma_MoApoA1</span> <span class="mf">22.456754</span>   <span class="mf">13.122373</span>   <span class="mf">31.919535</span>   <span class="mf">0.282109</span>    <span class="mf">2405.444517</span> <span class="mf">0.781086</span>    <span class="mf">0.180749</span>    <span class="mf">0.049500</span>    <span class="mf">0.029735</span>    <span class="mf">0.020158</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.998166</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">HuPlasma_HuClusterin</span> <span class="mf">32.582590</span>   <span class="mf">0.376199</span>    <span class="mf">32.052334</span>   <span class="mf">0.163323</span>    <span class="mf">2864.518506</span> <span class="mf">1.256262</span>    <span class="mf">0.200764</span>    <span class="mf">0.065098</span>    <span class="mf">0.040719</span>    <span class="mf">0.019119</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.994274</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">HuPlasma_MoClusterin</span> <span class="mf">27.194559</span>   <span class="mf">0.258395</span>    <span class="mf">24.003558</span>   <span class="mf">17.825458</span>   <span class="mf">2607.675923</span> <span class="mf">1.112615</span>    <span class="mf">0.212743</span>    <span class="mf">0.045589</span>    <span class="mf">0.039018</span>    <span class="mf">0.018668</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.930674</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">HuPlasma_Blank</span>   <span class="mf">32.488828</span>   <span class="mf">0.376533</span>    <span class="mf">39.593861</span>   <span class="mf">0.062841</span>    <span class="mf">1118.460191</span> <span class="mf">0.089828</span>    <span class="mf">0.057592</span>    <span class="mf">0.036908</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.839086</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">HuPlasma_HuApoA1</span> <span class="mf">31.086108</span>   <span class="mf">0.473218</span>    <span class="mf">41.791521</span>   <span class="mf">0.077555</span>    <span class="mf">925.026599</span>  <span class="mf">0.076931</span>    <span class="mf">0.050600</span>    <span class="mf">0.039458</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.746244</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">HuPlasma_MoApoA1</span> <span class="mf">5.515313</span>    <span class="mf">11.531890</span>   <span class="mf">61.492824</span>   <span class="mf">0.073660</span>    <span class="mf">1257.317799</span> <span class="mf">0.109481</span>    <span class="mf">0.037907</span>    <span class="mf">0.035923</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.789320</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">HuPlasma_HuClusterin</span> <span class="mf">23.129529</span>   <span class="mf">0.298602</span>    <span class="mf">48.359626</span>   <span class="mf">0.066117</span>    <span class="mf">1107.406763</span> <span class="mf">0.088518</span>    <span class="mf">0.061309</span>    <span class="mf">0.046386</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.801094</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">HuPlasma_MoClusterin</span> <span class="mf">15.104000</span>   <span class="mf">0.553546</span>    <span class="mf">32.388430</span>   <span class="mf">26.986106</span>   <span class="mf">1299.458766</span> <span class="mf">0.080025</span>    <span class="mf">0.048841</span>    <span class="mf">0.088563</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.796300</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">HuPlasma_Blank</span>  <span class="mf">8.736340</span>    <span class="mf">0.490211</span>    <span class="mf">15.619178</span>   <span class="mf">0.165874</span>    <span class="mf">3346.217791</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.450925</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">HuPlasma_HuApoA1</span>    <span class="mf">10.758113</span>   <span class="mf">0.403476</span>    <span class="mf">16.016800</span>   <span class="mf">0.136040</span>    <span class="mf">3237.869781</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.496317</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">HuPlasma_MoApoA1</span>    <span class="mf">2.516620</span>    <span class="mf">15.295009</span>   <span class="mf">15.931525</span>   <span class="mf">0.137708</span>    <span class="mf">4252.666442</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.533312</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">HuPlasma_HuClusterin</span>    <span class="mf">5.074242</span>    <span class="mf">0.515952</span>    <span class="mf">24.440048</span>   <span class="mf">0.186317</span>    <span class="mf">4471.297860</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.379508</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">HuPlasma_MoClusterin</span>    <span class="mf">4.220244</span>    <span class="mf">0.542362</span>    <span class="mf">14.486429</span>   <span class="mf">15.113975</span>   <span class="mf">4872.766636</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.534470</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">Non</span> <span class="n">Swiss</span> <span class="n">Albino</span> <span class="n">MoPlasma_Blank</span>  <span class="mf">0.332778</span>    <span class="mf">6.360149</span>    <span class="mf">0.125216</span>    <span class="mf">1.203717</span>    <span class="mf">3232.289303</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.422036</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">Non</span> <span class="n">Swiss</span> <span class="n">Albino</span> <span class="n">MoPlasma_HuApoA1</span>    <span class="mf">11.222718</span>   <span class="mf">5.904748</span>    <span class="mf">0.069370</span>    <span class="mf">1.431399</span>    <span class="mf">2616.208784</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.318739</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">Non</span> <span class="n">Swiss</span> <span class="n">Albino</span> <span class="n">MoPlasma_MoApoA1</span>    <span class="mf">0.162565</span>    <span class="mf">16.007913</span>   <span class="mf">0.056697</span>    <span class="mf">2.298471</span>    <span class="mf">2206.626357</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.151938</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">Non</span> <span class="n">Swiss</span> <span class="n">Albino</span> <span class="n">MoPlasma_HuClusterin</span>    <span class="mf">0.259236</span>    <span class="mf">5.832841</span>    <span class="mf">7.266716</span>    <span class="mf">1.087846</span>    <span class="mf">2442.136278</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.472447</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">Non</span> <span class="n">Swiss</span> <span class="n">Albino</span> <span class="n">MoPlasma_MoClusterin</span>    <span class="mf">0.178331</span>    <span class="mf">4.398798</span>    <span class="mf">0.059610</span>    <span class="mf">19.258034</span>   <span class="mf">3098.321804</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.442754</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_Blank</span>   <span class="mf">0.603841</span>    <span class="mf">5.377347</span>    <span class="mf">0.145166</span>    <span class="mf">0.825805</span>    <span class="mf">4215.905690</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.068586</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_HuApoA1</span> <span class="mf">2.151971</span>    <span class="mf">4.910012</span>    <span class="mf">0.145014</span>    <span class="mf">0.763785</span>    <span class="mf">4027.263579</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.265112</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_MoApoA1</span> <span class="mf">1.065653</span>    <span class="mf">9.705798</span>    <span class="mf">0.175774</span>    <span class="mf">0.703501</span>    <span class="mf">4396.808513</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.000000</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_HuClusterin</span> <span class="mf">0.219123</span>    <span class="mf">6.513774</span>    <span class="mf">5.218280</span>    <span class="mf">0.810030</span>    <span class="mf">5406.768264</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.225350</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_MoClusterin</span> <span class="mf">1.043765</span>    <span class="mf">3.604301</span>    <span class="mf">0.132647</span>    <span class="mf">4.926165</span>    <span class="mf">4587.385158</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.162844</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">C57BL6</span> <span class="n">MoPlasma_Blank</span>    <span class="mf">1.087146</span>    <span class="mf">0.331450</span>    <span class="mf">2.195702</span>    <span class="mf">0.939582</span>    <span class="mf">919.314579</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.526524</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">C57BL6</span> <span class="n">MoPlasma_HuApoA1</span>  <span class="mf">0.182048</span>    <span class="mf">0.264362</span>    <span class="mf">0.128881</span>    <span class="mf">3.309530</span>    <span class="mf">858.076082</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.570758</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">C57BL6</span> <span class="n">MoPlasma_MoApoA1</span>  <span class="mf">0.017231</span>    <span class="mf">1.181530</span>    <span class="mf">0.150203</span>    <span class="mf">1.803092</span>    <span class="mf">664.031370</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.568570</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">C57BL6</span> <span class="n">MoPlasma_HuClusterin</span>  <span class="mf">0.032813</span>    <span class="mf">0.197165</span>    <span class="mf">6.364008</span>    <span class="mf">1.728664</span>    <span class="mf">584.347629</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.531253</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">C57BL6</span> <span class="n">MoPlasma_MoClusterin</span>  <span class="mf">0.016328</span>    <span class="mf">0.399300</span>    <span class="mf">0.164536</span>    <span class="mf">14.863628</span>   <span class="mf">711.989234</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="o">...</span> <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mf">0.591282</span>
+<span class="mi">54</span> <span class="n">rows</span> <span class="err">×</span> <span class="mi">419</span> <span class="n">columns</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">You</span> <span class="n">are</span> <span class="n">using</span> <span class="n">extended</span> <span class="n">sheets</span><span class="o">.</span>
+<span class="n">You</span> <span class="n">have</span> <span class="n">selected</span> <span class="n">the</span> <span class="n">minmax</span> <span class="n">normalization</span> <span class="n">method</span><span class="o">.</span>
+<span class="n">Lipoproteins</span>    <span class="n">Total_quantification</span>    <span class="n">Acute</span> <span class="n">Phase</span> <span class="n">Coagulation</span> <span class="n">Complement</span> <span class="n">system</span>   <span class="n">Immunoglobulins</span> <span class="n">Other</span> <span class="n">Plasma</span> <span class="n">components</span> <span class="n">Tissue</span> <span class="n">Leakage</span>  <span class="n">Cytoskeleton</span>    <span class="n">stealth_effect</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS_HuApoA1</span>  <span class="mf">100.000000</span>  <span class="mf">851.222073</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.614734</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS_MoApoA1</span>  <span class="mf">100.000000</span>  <span class="mf">773.838190</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.621876</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS_HuClusterin</span>  <span class="mf">100.000000</span>  <span class="mf">654.288581</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.614734</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS_MoClusterin</span>  <span class="mf">100.000000</span>  <span class="mf">781.983886</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.699244</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS_HuApoA1</span>  <span class="mf">100.000000</span>  <span class="mf">928.280551</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.700659</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS_MoApoA1</span>  <span class="mf">100.000000</span>  <span class="mf">794.894175</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.665466</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS_HuClusterin</span>  <span class="mf">100.000000</span>  <span class="mf">616.388157</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.660222</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS_MoClusterin</span>  <span class="mf">100.000000</span>  <span class="mf">780.593948</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.604761</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS_HuApoA1</span> <span class="mf">100.000000</span>  <span class="mf">1062.287771</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.575969</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS_MoApoA1</span> <span class="mf">100.000000</span>  <span class="mf">912.887741</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.618787</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS_HuClusterin</span> <span class="mf">100.000000</span>  <span class="mf">819.037063</span>  <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.680553</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS_MoClusterin</span> <span class="mf">100.000000</span>  <span class="mf">1067.107172</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.642657</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuApoA1</span>    <span class="mf">100.000000</span>  <span class="mf">3404.888290</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.789223</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoApoA1</span>    <span class="mf">100.000000</span>  <span class="mf">3095.352760</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.799582</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuClusterin</span>    <span class="mf">100.000000</span>  <span class="mf">2617.154325</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.809361</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoClusterin</span>    <span class="mf">100.000000</span>  <span class="mf">3127.935545</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.724015</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuApoA1</span>    <span class="mf">100.000000</span>  <span class="mf">3713.122203</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.652340</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoApoA1</span>    <span class="mf">100.000000</span>  <span class="mf">3179.576700</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.657488</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuClusterin</span>    <span class="mf">100.000000</span>  <span class="mf">2465.552630</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.665047</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoClusterin</span>    <span class="mf">100.000000</span>  <span class="mf">3122.375793</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.645939</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuApoA1</span>   <span class="mf">100.000000</span>  <span class="mf">4249.151084</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.629821</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoApoA1</span>   <span class="mf">100.000000</span>  <span class="mf">3651.550964</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.615216</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_HuClusterin</span>   <span class="mf">100.000000</span>  <span class="mf">3276.148252</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.675470</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">PBS</span><span class="o">-</span><span class="n">HU</span><span class="o">-</span><span class="mi">3</span><span class="n">h_MoClusterin</span>   <span class="mf">100.000000</span>  <span class="mf">4268.428688</span> <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.000000</span>    <span class="mf">0.589738</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">HuPlasma_HuApoA1</span> <span class="mf">81.928430</span>   <span class="mf">2606.822739</span> <span class="mf">2.515424</span>    <span class="mf">0.622733</span>    <span class="mf">1.344773</span>    <span class="mf">4.110761</span>    <span class="mf">2.443639</span>    <span class="mf">7.034239</span>    <span class="mf">0.000000</span>    <span class="mf">1.000000</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">HuPlasma_MoApoA1</span> <span class="mf">85.295681</span>   <span class="mf">2405.444517</span> <span class="mf">1.113826</span>    <span class="mf">0.462909</span>    <span class="mf">0.966718</span>    <span class="mf">3.190911</span>    <span class="mf">2.354359</span>    <span class="mf">6.615596</span>    <span class="mf">0.000000</span>    <span class="mf">0.998166</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">HuPlasma_HuClusterin</span> <span class="mf">84.289849</span>   <span class="mf">2864.518506</span> <span class="mf">1.643016</span>    <span class="mf">0.509486</span>    <span class="mf">1.699279</span>    <span class="mf">3.317241</span>    <span class="mf">2.720754</span>    <span class="mf">5.820376</span>    <span class="mf">0.000000</span>    <span class="mf">0.994274</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">HuPlasma_MoClusterin</span> <span class="mf">84.451890</span>   <span class="mf">2607.675923</span> <span class="mf">1.491492</span>    <span class="mf">0.837847</span>    <span class="mf">1.326563</span>    <span class="mf">2.811918</span>    <span class="mf">3.601011</span>    <span class="mf">5.479279</span>    <span class="mf">0.000000</span>    <span class="mf">0.930674</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">HuPlasma_Blank</span>   <span class="mf">80.768094</span>   <span class="mf">3089.788689</span> <span class="mf">2.016566</span>    <span class="mf">0.792413</span>    <span class="mf">1.863207</span>    <span class="mf">4.712911</span>    <span class="mf">2.999134</span>    <span class="mf">6.847674</span>    <span class="mf">0.000000</span>    <span class="mf">0.992858</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">HuPlasma_HuApoA1</span> <span class="mf">83.506534</span>   <span class="mf">925.026599</span>  <span class="mf">0.278141</span>    <span class="mf">0.289797</span>    <span class="mf">0.317456</span>    <span class="mf">3.153519</span>    <span class="mf">9.577373</span>    <span class="mf">2.848006</span>    <span class="mf">0.029175</span>    <span class="mf">0.746244</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">HuPlasma_MoApoA1</span> <span class="mf">88.850240</span>   <span class="mf">1257.317799</span> <span class="mf">0.297457</span>    <span class="mf">0.362519</span>    <span class="mf">0.479320</span>    <span class="mf">3.096092</span>    <span class="mf">3.451395</span>    <span class="mf">3.398746</span>    <span class="mf">0.064231</span>    <span class="mf">0.789320</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">HuPlasma_HuClusterin</span> <span class="mf">83.210400</span>   <span class="mf">1107.406763</span> <span class="mf">0.331074</span>    <span class="mf">0.456272</span>    <span class="mf">0.453177</span>    <span class="mf">4.122592</span>    <span class="mf">8.199297</span>    <span class="mf">3.165471</span>    <span class="mf">0.061716</span>    <span class="mf">0.801094</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">HuPlasma_MoClusterin</span> <span class="mf">82.550526</span>   <span class="mf">1299.458766</span> <span class="mf">0.326452</span>    <span class="mf">0.415003</span>    <span class="mf">0.449525</span>    <span class="mf">3.912592</span>    <span class="mf">7.348364</span>    <span class="mf">4.958810</span>    <span class="mf">0.038728</span>    <span class="mf">0.796300</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">HuPlasma_Blank</span>   <span class="mf">84.021766</span>   <span class="mf">1118.460191</span> <span class="mf">0.382632</span>    <span class="mf">0.367741</span>    <span class="mf">0.399402</span>    <span class="mf">3.264712</span>    <span class="mf">8.228524</span>    <span class="mf">3.304885</span>    <span class="mf">0.030338</span>    <span class="mf">0.839086</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">HuPlasma_HuApoA1</span>    <span class="mf">53.353527</span>   <span class="mf">3237.869781</span> <span class="mf">0.323019</span>    <span class="mf">6.285164</span>    <span class="mf">0.868813</span>    <span class="mf">2.630246</span>    <span class="mf">12.809252</span>   <span class="mf">23.729979</span>   <span class="mf">0.000000</span>    <span class="mf">0.496317</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">HuPlasma_MoApoA1</span>    <span class="mf">56.879410</span>   <span class="mf">4252.666442</span> <span class="mf">0.261495</span>    <span class="mf">4.735471</span>    <span class="mf">0.816505</span>    <span class="mf">2.758992</span>    <span class="mf">12.830609</span>   <span class="mf">21.717518</span>   <span class="mf">0.000000</span>    <span class="mf">0.533312</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">HuPlasma_HuClusterin</span>    <span class="mf">51.933533</span>   <span class="mf">4471.297860</span> <span class="mf">0.280409</span>    <span class="mf">7.557648</span>    <span class="mf">1.092718</span>    <span class="mf">3.341611</span>    <span class="mf">12.610447</span>   <span class="mf">23.183636</span>   <span class="mf">0.000000</span>    <span class="mf">0.379508</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">HuPlasma_MoClusterin</span>    <span class="mf">54.684245</span>   <span class="mf">4872.766636</span> <span class="mf">0.256364</span>    <span class="mf">7.489511</span>    <span class="mf">0.865743</span>    <span class="mf">2.147708</span>    <span class="mf">12.416528</span>   <span class="mf">22.139901</span>   <span class="mf">0.000000</span>    <span class="mf">0.534470</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">HuPlasma_Blank</span>  <span class="mf">49.841808</span>   <span class="mf">3346.217791</span> <span class="mf">0.353963</span>    <span class="mf">7.444605</span>    <span class="mf">0.974543</span>    <span class="mf">2.551000</span>    <span class="mf">14.750061</span>   <span class="mf">24.084020</span>   <span class="mf">0.000000</span>    <span class="mf">0.450925</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">Non</span> <span class="n">Swiss</span> <span class="n">Albino</span> <span class="n">MoPlasma_HuApoA1</span>    <span class="mf">36.345663</span>   <span class="mf">2616.208784</span> <span class="mf">4.610618</span>    <span class="mf">1.137263</span>    <span class="mf">1.457584</span>    <span class="mf">3.617466</span>    <span class="mf">35.109514</span>   <span class="mf">17.721893</span>   <span class="mf">0.000000</span>    <span class="mf">0.318739</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">Non</span> <span class="n">Swiss</span> <span class="n">Albino</span> <span class="n">MoPlasma_MoApoA1</span>    <span class="mf">36.928675</span>   <span class="mf">2206.626357</span> <span class="mf">6.004263</span>    <span class="mf">1.566254</span>    <span class="mf">1.045499</span>    <span class="mf">3.654172</span>    <span class="mf">30.751484</span>   <span class="mf">20.049653</span>   <span class="mf">0.000000</span>    <span class="mf">0.151938</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">Non</span> <span class="n">Swiss</span> <span class="n">Albino</span> <span class="n">MoPlasma_HuClusterin</span>    <span class="mf">32.180877</span>   <span class="mf">2442.136278</span> <span class="mf">4.525717</span>    <span class="mf">1.151754</span>    <span class="mf">1.270687</span>    <span class="mf">2.939453</span>    <span class="mf">39.591985</span>   <span class="mf">18.339528</span>   <span class="mf">0.000000</span>    <span class="mf">0.472447</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">Non</span> <span class="n">Swiss</span> <span class="n">Albino</span> <span class="n">MoPlasma_MoClusterin</span>    <span class="mf">40.665869</span>   <span class="mf">3098.321804</span> <span class="mf">3.599711</span>    <span class="mf">1.121642</span>    <span class="mf">1.267143</span>    <span class="mf">3.001265</span>    <span class="mf">34.321800</span>   <span class="mf">16.022571</span>   <span class="mf">0.000000</span>    <span class="mf">0.442754</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">Non</span> <span class="n">Swiss</span> <span class="n">Albino</span> <span class="n">MoPlasma_Blank</span>  <span class="mf">30.911365</span>   <span class="mf">3232.289303</span> <span class="mf">5.361169</span>    <span class="mf">1.228369</span>    <span class="mf">1.116335</span>    <span class="mf">3.070656</span>    <span class="mf">40.842267</span>   <span class="mf">17.469838</span>   <span class="mf">0.000000</span>    <span class="mf">0.422036</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_HuApoA1</span> <span class="mf">30.075763</span>   <span class="mf">4027.263579</span> <span class="mf">2.599482</span>    <span class="mf">5.872161</span>    <span class="mf">2.922702</span>    <span class="mf">5.937074</span>    <span class="mf">20.693243</span>   <span class="mf">31.899575</span>   <span class="mf">0.000000</span>    <span class="mf">0.265112</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_MoApoA1</span> <span class="mf">29.868580</span>   <span class="mf">4396.808513</span> <span class="mf">3.017003</span>    <span class="mf">5.826785</span>    <span class="mf">2.485043</span>    <span class="mf">5.916696</span>    <span class="mf">20.887577</span>   <span class="mf">31.998316</span>   <span class="mf">0.000000</span>    <span class="mf">0.000000</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_HuClusterin</span> <span class="mf">36.565617</span>   <span class="mf">5406.768264</span> <span class="mf">2.200818</span>    <span class="mf">4.105247</span>    <span class="mf">2.012549</span>    <span class="mf">5.112037</span>    <span class="mf">26.921152</span>   <span class="mf">23.082580</span>   <span class="mf">0.000000</span>    <span class="mf">0.225350</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_MoClusterin</span> <span class="mf">29.755312</span>   <span class="mf">4587.385158</span> <span class="mf">2.561200</span>    <span class="mf">6.608350</span>    <span class="mf">2.274045</span>    <span class="mf">4.891427</span>    <span class="mf">21.611059</span>   <span class="mf">32.298607</span>   <span class="mf">0.000000</span>    <span class="mf">0.162844</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_Blank</span>   <span class="mf">27.793815</span>   <span class="mf">4215.905690</span> <span class="mf">2.656895</span>    <span class="mf">5.109932</span>    <span class="mf">2.297730</span>    <span class="mf">4.797563</span>    <span class="mf">26.405303</span>   <span class="mf">30.938762</span>   <span class="mf">0.000000</span>    <span class="mf">0.068586</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">C57BL6</span> <span class="n">MoPlasma_HuApoA1</span>  <span class="mf">81.360800</span>   <span class="mf">858.076082</span>  <span class="mf">0.000000</span>    <span class="mf">1.161873</span>    <span class="mf">2.276083</span>    <span class="mf">1.195238</span>    <span class="mf">8.106561</span>    <span class="mf">5.899444</span>    <span class="mf">0.000000</span>    <span class="mf">0.570758</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">C57BL6</span> <span class="n">MoPlasma_MoApoA1</span>  <span class="mf">73.489920</span>   <span class="mf">664.031370</span>  <span class="mf">0.000000</span>    <span class="mf">1.430377</span>    <span class="mf">1.461289</span>    <span class="mf">2.373094</span>    <span class="mf">15.013698</span>   <span class="mf">6.231622</span>    <span class="mf">0.000000</span>    <span class="mf">0.568570</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">C57BL6</span> <span class="n">MoPlasma_HuClusterin</span>  <span class="mf">81.841740</span>   <span class="mf">584.347629</span>  <span class="mf">0.000000</span>    <span class="mf">1.121152</span>    <span class="mf">2.049576</span>    <span class="mf">2.023776</span>    <span class="mf">7.569276</span>    <span class="mf">5.394480</span>    <span class="mf">0.000000</span>    <span class="mf">0.531253</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">C57BL6</span> <span class="n">MoPlasma_MoClusterin</span>  <span class="mf">85.230909</span>   <span class="mf">711.989234</span>  <span class="mf">0.000000</span>    <span class="mf">0.625355</span>    <span class="mf">0.546359</span>    <span class="mf">1.576673</span>    <span class="mf">7.237618</span>    <span class="mf">4.783086</span>    <span class="mf">0.000000</span>    <span class="mf">0.591282</span>
+<span class="n">PS</span><span class="o">-</span><span class="n">NH2</span><span class="o">-</span><span class="n">C57BL6</span> <span class="n">MoPlasma_Blank</span>    <span class="mf">65.272937</span>   <span class="mf">919.314579</span>  <span class="mf">0.000000</span>    <span class="mf">1.523141</span>    <span class="mf">4.492967</span>    <span class="mf">2.641756</span>    <span class="mf">18.329337</span>   <span class="mf">7.739863</span>    <span class="mf">0.000000</span>    <span class="mf">0.526524</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><code>df.loc['PS-COOH-NonSwissAlbino MoPlasma_MoClusterin',:].to_frame()</code></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Composition</label><label for="__tabbed_4_2">Annotation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_MoClusterin</span>
+<span class="n">Apolipoprotein</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="mi">0</span>  <span class="mf">1.043765</span>
+<span class="n">Apolipoprotein</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">1</span>  <span class="mf">3.604301</span>
+<span class="n">Clusterin</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="mi">2</span>   <span class="mf">0.132647</span>
+<span class="n">Clusterin</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">3</span>   <span class="mf">4.926165</span>
+<span class="n">Total_quantification</span>    <span class="mf">4587.385158</span>
+<span class="o">...</span> <span class="o">...</span>
+<span class="n">Transmembrane</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">414</span> <span class="mf">0.000000</span>
+<span class="n">Exosome</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">415</span>   <span class="mf">0.000000</span>
+<span class="n">Trimethylguanosine</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">416</span>    <span class="mf">0.000000</span>
+<span class="n">H</span><span class="o">-</span><span class="mi">2</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="mi">417</span>   <span class="mf">0.000000</span>
+<span class="n">stealth_effect</span>  <span class="mf">0.162844</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">PS</span><span class="o">-</span><span class="n">COOH</span><span class="o">-</span><span class="n">NonSwissAlbino</span> <span class="n">MoPlasma_MoClusterin</span>
+<span class="n">Lipoproteins</span>    <span class="mf">29.755312</span>
+<span class="n">Total_quantification</span>    <span class="mf">4587.385158</span>
+<span class="n">Acute</span> <span class="n">Phase</span> <span class="mf">2.561200</span>
+<span class="n">Coagulation</span> <span class="mf">6.608350</span>
+<span class="n">Complement</span> <span class="n">system</span>   <span class="mf">2.274045</span>
+<span class="n">Immunoglobulins</span> <span class="mf">4.891427</span>
+<span class="n">Other</span> <span class="n">Plasma</span> <span class="n">components</span> <span class="mf">21.611059</span>
+<span class="n">Tissue</span> <span class="n">Leakage</span>  <span class="mf">32.298607</span>
+<span class="n">Cytoskeleton</span>    <span class="mf">0.000000</span>
+<span class="n">stealth_effect</span>  <span class="mf">0.162844</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Installation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../2.%20Model%20building/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Model building">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Model building
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+    
+  
+
+
+
+
+<h4></h4>
+<p></p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.select", "content.code.copy", "content.tabs.link", "content.code.annotate", "navigation.instant", "navigation.expand", "navigation.footer"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
