@@ -25,7 +25,6 @@ setup(
         'scikit-learn',
         'shap',
         'llvmlite==0.40.1',
-        # 'pyfiglet', # ==0.8.post1
     ],
     # entry_points={
     #     'console_scripts': [
