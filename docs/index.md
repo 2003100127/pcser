@@ -1,11 +1,11 @@
 <h1 align="left">
-    <img src="../img/pcser-logo.png?raw=true" width="300" height="105">
+    <img src="./img/pcser-logo.png?raw=true" width="300" height="105">
     <br>
 </h1>
 
 
 ![PyPI](https://img.shields.io/pypi/v/pcser?logo=PyPI)
-![](https://img.shields.io/github/stars/cribbslab/pcser?logo=GitHub&color=blue)
+![](https://img.shields.io/github/stars/2003100127/pcser?logo=GitHub&color=blue)
 [![Downloads](https://pepy.tech/badge/pcser)](https://pepy.tech/project/pcser)
 
 <hr>
