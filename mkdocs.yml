@@ -63,4 +63,4 @@ extra:
 plugins:
   - tags
   - search
-  - glightbox
+#  - glightbox

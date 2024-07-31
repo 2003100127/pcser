@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pcser",
-    version="0.0.1",
+    version="0.0.2",
     keywords=["conda", "pcser"],
     description="Protein corona stealth effect prediction",
     long_description="Protein Corona Stealth Effect pRediction (PCSER)",

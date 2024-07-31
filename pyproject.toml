@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pcser"
-version = "0.0.1"
+version = "0.0.2"
 description = "protein corona stealth effect prediction"
 authors = ["Jianfeng Sun <jianfeng.sunmt@gmail.com>"]
 license = "GPL-3.0"
