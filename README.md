@@ -7,6 +7,8 @@
 ![PyPI](https://img.shields.io/pypi/v/pcser?logo=PyPI)
 ![](https://img.shields.io/github/stars/2003100127/pcser?logo=GitHub&color=blue)
 [![Downloads](https://pepy.tech/badge/pcser)](https://pepy.tech/project/pcser)
+![example workflow](https://github.com/2003100127/umiche/actions/workflows/docs.yml/badge.svg)
+![example workflow](https://github.com/2003100127/umiche/actions/workflows/pypi.yml/badge.svg)
 
 <hr>
 
